@@ -3,7 +3,7 @@ import ScreenDesktopComponent from "../ScreenDesktopComponent/ScreenDesktopCompo
 
 const PickTheSun: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-6 z-1 py-10 px-5 mt">
+    <div className="flex flex-col items-center justify-center gap-6 z-1 py-10 px-5 mt overflow-hidden">
       <div className="flex flex-col items-center gap-2 w-[343px] h-[62px]">
         {/* Caption */}
         <div className="  font-medium text-[16px] leading-[18px] text-center text-[#D97706]">

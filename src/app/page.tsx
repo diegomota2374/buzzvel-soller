@@ -1,4 +1,5 @@
 import HeaderComponent from "../components/HeaderComponent/HeaderComponent";
+import PersonalizedServices from "../components/PersonalizedServices/PersonalizedServices";
 import PickTheSun from "../components/PickTheSun/PickTheSun";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <HeaderComponent />
       <PickTheSun />
+      <PersonalizedServices />
     </>
   );
 }
