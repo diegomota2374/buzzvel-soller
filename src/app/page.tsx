@@ -1,3 +1,4 @@
+import Footer from "../components/Footer/Footer";
 import HeaderComponent from "../components/HeaderComponent/HeaderComponent";
 import MakeSomething from "../components/MakeSomething/MakeSomething";
 import NowAvailable from "../components/NowAvailable/NowAvailable";
@@ -14,6 +15,7 @@ export default function Home() {
       <PowerfulFeatures />
       <MakeSomething />
       <NowAvailable />
+      <Footer />
     </>
   );
 }
