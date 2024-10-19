@@ -5,7 +5,7 @@ import { IoSearchOutline, IoStar } from "react-icons/io5";
 
 const PhonePowerfulFeatures = () => {
   return (
-    <div className="relative flex items-center justify-center py-10">
+    <div className="relative flex items-center justify-center py-5">
       {/* Purple oval behind the rectangle */}
       <div className="absolute w-[599.56px] h-[350px] -right-[250px] top-[80px] bg-[#FBBF24] rounded-full z-[1] -rotate-45"></div>
 

@@ -8,11 +8,11 @@ const PowerfulFeatures = () => {
           <h3 className="text-center text-[#D97706] text-[16px] font-medium leading-[18px] w-full">
             System features
           </h3>
-          <h2 className="text-center text-[#0F172A] text-[32px] font-bold leading-[35px] w-full">
+          <h2 className="text-center  text-[32px] font-bold leading-[35px] w-full">
             Powerful features{" "}
           </h2>
         </div>
-        <p className="text-center text-[#0F172A] text-[16px] leading-[22px] w-full px-8">
+        <p className="text-center  text-[16px] leading-[22px] w-full px-8">
           Pretium lectus ultrices sit tempor, sit ullamcorper volutpat et et.
           Auctor turpis semper id sit ornare maecenas lectus sed.
         </p>

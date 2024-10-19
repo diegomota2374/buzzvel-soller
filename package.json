@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "flowbite": "^2.5.2",
+    "framer-motion": "^11.11.9",
     "next": "14.2.15",
     "react": "^18",
     "react-avatar": "^5.0.3",
