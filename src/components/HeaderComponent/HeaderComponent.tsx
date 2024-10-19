@@ -14,7 +14,7 @@ const HeaderComponent = () => {
             orci dui consequat turpis scelerisque.
           </p>
 
-          <button className="w-[306px] h-[64px] py-2 px-3 border-2 border-[#581C87] rounded-full text-2xl text-[#581C87] font-bold flex items-center justify-center gap-8 hover:bg-[#6b5e75] hover:text-[#FCD34D]">
+          <button className="w-[306px] h-[64px] py-2 px-3 border-2 border-[#581C87] hover:border-[#581C87] rounded-full text-2xl text-[#581C87] font-bold flex items-center justify-center gap-8 hover:bg-[#581C87] hover:text-[#FCD34D]">
             Request a Quote
             <FaArrowRight size={18} />
           </button>
