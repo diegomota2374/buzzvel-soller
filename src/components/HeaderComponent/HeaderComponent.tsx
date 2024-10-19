@@ -3,13 +3,16 @@ import { FaArrowRight } from "react-icons/fa";
 
 const HeaderComponent = () => {
   return (
-    <section id="powerHome" className="flex flex-col-reverse">
-      <div className=" p-4 my-5 ">
-        <div className="flex flex-col text-center justify-center items-center gap-8">
-          <h1 className="text-[40px] font-bold leading-[44px]">
+    <section
+      id="powerHome"
+      className="relative flex flex-col-reverse md:flex-row "
+    >
+      <div className=" p-4 my-5 md:w-[920px] md:px-20 md:py-0 md:my-0 pt-60 md:pt-0">
+        <div className="flex flex-col text-center justify-center items-center md:items-start md:w-[600px] gap-8">
+          <h1 className="text-[40px] md:text-[70px] font-bold leading-[44px] md:leading-[79.2px] md:text-left ">
             Get the Sun to Power Your Home
           </h1>
-          <p className="text-[18px] font-normal leading-[28.8px] text-center">
+          <p className="text-[18px] md:text-[24px] font-normal leading-[28.8px] text-center md:text-left">
             Viverra viverra nibh enim et aliquam, enim. Tempor, sit mus viverra
             orci dui consequat turpis scelerisque.
           </p>
@@ -20,7 +23,7 @@ const HeaderComponent = () => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-5 text-left mt-20">
+        <div className="flex flex-col gap-5 text-left mt-20 md:w-[600px]">
           <p className="text-[18px] font-normal leading-[28.8px]">
             “Viverra viverra nibh enim et aliquam, enim. Tempor, sit mus viverra
             orci dui consequat turpis scelerisque faucibus.”
@@ -48,21 +51,14 @@ const HeaderComponent = () => {
         </div>
       </div>
 
-      <div className="flex justify-between mb-5">
-        <div className="pl-4">
-          <h2 className="text-3xl font-bold leading-[35.2px] text-left z-50">
-            Soller
-          </h2>
-        </div>
-        <div className="right-0 rounded-full">
-          <Image
-            src="/img/soller.jpg"
-            alt="Imagem Circular"
-            width={200}
-            height={200}
-            className="object-cover w-full h-full"
-          />
-        </div>
+      <div className="absolute -right-4 md:right-0 -top-24 md:-top-40 rounded-full z-10">
+        <Image
+          src="/img/soller.jpg"
+          alt="Imagem Circular"
+          width={300}
+          height={300}
+          className="object-contain w-[300px] h-[300px] md:w-[800px] md:h-[700px]"
+        />
       </div>
     </section>
   );
