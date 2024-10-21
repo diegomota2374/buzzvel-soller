@@ -1,7 +1,40 @@
+"use client";
+import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import NotebookScreen from "../NotebookScreen/NotebookScreen";
+import { useInView } from "react-intersection-observer";
 
 const NowAvailable = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
+  const circleVariants = {
+    hidden: { scale: 4, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 1.5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const notebookVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+        delay: 0.5,
+      },
+    },
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[#581C87] md:bg-[#7E22CE] py-10">
       <div className="flex flex-col md:flex-row md:w-full items-center  justify-center md:justify-between md:px-40 gap-5 ">
@@ -18,13 +51,30 @@ const NowAvailable = () => {
             Request a Quote
             <FaArrowRight size={18} />
           </button>
-          <p className="text-center text-white  text-[16px] w-full px-8 pb-5">
+          <p
+            ref={ref}
+            className="text-center text-white  text-[16px] w-full px-8 pb-5"
+          >
             Egestas fringilla aliquam leo
           </p>
         </div>
       </div>
-      <NotebookScreen />
-      <div className="absolute bg-[#A855F7] rounded-full w-[356px] h-[355px] md:w-[782px] md:h-[780px] -left-1/2 md:left-[1200px] -bottom-2/3 md:-bottom-20  transform -translate-y-2/3 z-2"></div>
+
+      <motion.div
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={notebookVariants}
+        className="z-10"
+      >
+        <NotebookScreen />
+      </motion.div>
+
+      <motion.div
+        className="absolute bg-[#A855F7] rounded-full w-[356px] h-[355px] md:w-[782px] md:h-[780px] -left-1/2 md:left-[1200px] -bottom-[200px] md:bottom-[420px] transform -translate-y-2/3 z-[1]"
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={circleVariants}
+      ></motion.div>
     </div>
   );
 };

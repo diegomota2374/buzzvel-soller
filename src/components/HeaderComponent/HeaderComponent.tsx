@@ -1,13 +1,61 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { useInView } from "react-intersection-observer";
 
 const HeaderComponent = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  const containerVariants = {
+    hidden: { opacity: 0, x: -100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 60,
+        damping: 20,
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0 },
+  };
+
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Verifica o tamanho da janela ao carregar
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <section
       id="powerHome"
+      ref={ref}
       className="relative flex flex-col-reverse md:flex-row pb-10"
     >
-      <div className=" p-4 my-5 md:w-[920px] md:px-20 md:py-0 md:my-0 pt-60 md:pt-0">
+      <motion.div
+        className="p-4 my-5 md:w-[920px] md:px-20 md:py-0 md:my-0 pt-60 md:pt-0"
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
         <div className="flex flex-col text-center justify-center items-center md:items-start md:w-[600px] gap-8">
           <h1 className="text-[40px] md:text-[70px] font-bold leading-[44px] md:leading-[79.2px] md:text-left ">
             Get the Sun to Power Your Home
@@ -23,7 +71,10 @@ const HeaderComponent = () => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-5 text-left mt-20 md:w-[600px]">
+        <motion.div
+          className="flex flex-col gap-5 text-left mt-20 md:w-[600px] "
+          variants={itemVariants}
+        >
           <p className="text-[18px] font-normal leading-[28.8px]">
             “Viverra viverra nibh enim et aliquam, enim. Tempor, sit mus viverra
             orci dui consequat turpis scelerisque faucibus.”
@@ -48,11 +99,23 @@ const HeaderComponent = () => {
               <p className="text-[16px] text-[#475569]">zerowste.com</p>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <div className=" absolute bg-[#BAE6FD]  w-[350px] h-[350px] md:w-[850px] md:h-[700px] right-0 -top-24 md:-top-40 z-0"></div>
-      <div className=" absolute  w-[350px] h-[350px] md:w-[850px] md:h-[850px] right-0 -top-24 md:-top-40 z-20 overflow-hidden">
-        <div className="absolute shadow-[0_0_0_350px] shadow-white rounded-full w-[350px] h-[300px] md:w-[700px] md:h-[800px] -right-20 -top-10 md:-right-20 md:-top-28 z-10 -rotate-[55grad] md:rotate-[55grad]"></div>
+      <div className=" absolute  w-[350px] h-[350px] md:w-[850px] md:h-[800px] right-0 -top-24 md:-top-40 z-20 overflow-hidden">
+        <motion.div
+          className="absolute will-change-auto shadow-[0_0_0_1250px] shadow-white rounded-full -right-20 -top-10 md:-right-20 md:-top-28 -z-50 -rotate-[55grad] md:rotate-[55grad]"
+          initial={{ width: 0, height: 0 }}
+          animate={{
+            width: inView ? (isMobile ? 350 : 700) : 0,
+            height: inView ? (isMobile ? 300 : 800) : 0,
+          }}
+          exit={{ width: 0, height: 0 }}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+          }}
+        />
       </div>
 
       <div className="absolute  right-0 md:right-0 -top-14 md:-top-20 rounded-full z-10">

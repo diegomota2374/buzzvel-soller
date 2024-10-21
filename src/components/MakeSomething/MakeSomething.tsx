@@ -1,9 +1,32 @@
+"use client";
 import { FaArrowRight } from "react-icons/fa";
 import CarouselMakeSomething from "../CarouselMakeSomething/CarouselMakeSomething";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 const MakeSomething = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
+  const carouselVariants = {
+    hidden: { opacity: 0, x: 400 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+        delay: 0.5,
+      },
+    },
+  };
   return (
-    <div className="flex flex-col items-center justify-center overflow-hidden bg-[#581C87] py-10">
+    <section
+      ref={ref}
+      className="flex flex-col items-center justify-center overflow-hidden bg-[#581C87] py-10"
+    >
       <div className="flex flex-col justify-center items-center md:items-start md:w-full md:flex-row md:justify-between md:px-40 md:py-20">
         <div className="flex flex-col items-center justify-center gap-14 md:w-[814px]">
           <div className="flex flex-col items-center gap-2 w-full h-[62px]">
@@ -25,8 +48,14 @@ const MakeSomething = () => {
           <FaArrowRight size={18} />
         </button>
       </div>
-      <CarouselMakeSomething />
-    </div>
+      <motion.div
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={carouselVariants}
+      >
+        <CarouselMakeSomething />
+      </motion.div>
+    </section>
   );
 };
 export default MakeSomething;

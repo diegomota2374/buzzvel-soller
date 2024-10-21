@@ -1,9 +1,32 @@
+"use client";
 import React from "react";
 import ScreenDesktopComponent from "../ScreenDesktopComponent/ScreenDesktopComponent";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 const PickTheSun: React.FC = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.17,
+  });
+  const screenVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+        duration: 0.5,
+      },
+    },
+  };
   return (
-    <div className="flex flex-col  items-center justify-center gap-6 z-1 py-10 px-5 mt overflow-hidden">
+    <section
+      ref={ref}
+      className="flex flex-col  items-center justify-center gap-6 z-1 py-10 px-5 mt overflow-hidden"
+    >
       <div className="flex flex-col items-center gap-2 w-[343px] h-[62px]">
         {/* Caption */}
         <div className="  font-medium text-[16px] md:text-[20px] leading-[18px] text-center text-[#D97706]">
@@ -28,10 +51,16 @@ const PickTheSun: React.FC = () => {
 
         <div className="absolute w-[209.74px] h-[210.1px]  md:w-[596px] md:h-[596px] bg-[#7E22CE] right-0 top-0 md:top-28 rounded-full transform translate-x-48 -translate-y-5 z-[-10]"></div>
 
-        {/* ScreenDesktopComponent */}
-        <ScreenDesktopComponent />
+        <motion.div
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          exit="hidden"
+          variants={screenVariants}
+        >
+          <ScreenDesktopComponent />
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
