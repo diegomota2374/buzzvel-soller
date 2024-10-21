@@ -50,14 +50,18 @@ const HeaderComponent = () => {
           </div>
         </div>
       </div>
+      <div className=" absolute bg-[#BAE6FD]  w-[350px] h-[350px] md:w-[850px] md:h-[700px] right-0 -top-24 md:-top-40 z-0"></div>
+      <div className=" absolute  w-[350px] h-[350px] md:w-[850px] md:h-[850px] right-0 -top-24 md:-top-40 z-20 overflow-hidden">
+        <div className="absolute shadow-[0_0_0_350px] shadow-white rounded-full w-[350px] h-[300px] md:w-[700px] md:h-[800px] -right-20 -top-10 md:-right-20 md:-top-28 z-10 -rotate-[55grad] md:rotate-[55grad]"></div>
+      </div>
 
-      <div className="absolute right-0 md:right-0 -top-24 md:-top-40 rounded-full z-10">
+      <div className="absolute  right-0 md:right-0 -top-14 md:-top-20 rounded-full z-10">
         <Image
-          src="/img/soller.jpg"
+          src="/img/soller.png"
           alt="Imagem Circular"
-          width={300}
-          height={300}
-          className="object-contain w-[300px] h-[300px] md:w-[800px] md:h-[700px]"
+          width={1357}
+          height={904}
+          className="object-contain w-[300px] h-[300px] md:w-[800px] md:h-[800px]"
         />
       </div>
     </section>
