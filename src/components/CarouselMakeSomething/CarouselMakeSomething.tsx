@@ -68,12 +68,12 @@ const CarouselMakeSomething = () => {
   return (
     <div
       id="controls-carousel"
-      className="relative w-full flex flex-col items-end md:items-start md:justify-start md:pl-44 overflow-hidden"
+      className="relative w-full flex flex-col items-end lg:items-start lg:justify-start lg:pl-24 overflow-hidden"
     >
       {/* Carousel wrapper */}
-      <div className="relative h-[359px] md:h-[490px] overflow-hidden rounded-lg my-7 md:my-16 flex">
+      <div className="relative h-[359px] lg:h-[490px] lg:w-[100vw] overflow-hidden rounded-lg my-7 lg:my-16 flex">
         {/* Slide Principal */}
-        <div className="w-[343px] h-[359px] md:w-[364px] md:h-[490px] mb-10 relative">
+        <div className="w-[343px] h-[359px] lg:w-[60%] lg:h-[490px] mb-10 relative">
           <AnimatePresence initial={false}>
             <motion.div
               key={currentSlide}
@@ -88,13 +88,13 @@ const CarouselMakeSomething = () => {
               }}
               className="w-[364px] h-full bg-white flex flex-col items-start justify-end rounded-lg shadow-lg p-10"
             >
-              <p className="text-left text-[16px] md:text-[18px] mb-8 md:mb-12">
+              <p className="text-left text-[16px] lg:text-[18px] mb-8 lg:mb-12">
                 {slides[currentSlide].text}
               </p>
               {/* Bloco de imagem e informações do usuário */}
               <div className="flex items-center">
                 {/* Imagem do Avatar */}
-                <div className="w-[50px] h-[50px] md:w-[64px] md:h-[64px] rounded-full overflow-hidden">
+                <div className="w-[50px] h-[50px] lg:w-[64px] lg:h-[64px] rounded-full overflow-hidden">
                   <Image
                     src={slides[currentSlide].user.avatar}
                     alt={`${slides[currentSlide].user.name} Avatar`}
@@ -119,7 +119,7 @@ const CarouselMakeSomething = () => {
         </div>
 
         {/* Slides menores em lista horizontal à direita */}
-        <div className="hidden w-full md:flex items-center pl-5">
+        <div className="hidden w-full lg:flex items-center pl-5">
           <div className="relative w-full overflow-hidden">
             <motion.div className="flex space-x-4">
               {displaySlides.map((slide, index) => (
@@ -132,12 +132,12 @@ const CarouselMakeSomething = () => {
                         : ""
                     }`}
                 >
-                  <p className="text-left text-[14px] md:text-[18px] mb-4 md:mb-12">
+                  <p className="text-left text-[14px] lg:text-[18px] mb-4 lg:mb-12">
                     {slide.text}
                   </p>
                   <div className="flex items-center">
                     {/* Imagem menor */}
-                    <div className="w-[40px] h-[40px] md:w-[54px] md:h-[54px] rounded-full overflow-hidden">
+                    <div className="w-[40px] h-[40px] lg:w-[54px] lg:h-[54px] rounded-full overflow-hidden">
                       <Image
                         src={slide.user.avatar}
                         alt={`${slide.user.name} Avatar`}
@@ -167,8 +167,8 @@ const CarouselMakeSomething = () => {
       </div>
 
       {/* Slider controls */}
-      <div className="flex justify-center md:justify-start w-full">
-        <div className="flex justify-center md:justify-start space-x-4 py-10 ">
+      <div className="flex justify-center lg:justify-start w-full">
+        <div className="flex justify-center lg:justify-start space-x-4 py-10 ">
           {/* Previous Button */}
           <motion.button
             type="button"

@@ -27,17 +27,17 @@ const MakeSomething = () => {
       ref={ref}
       className="flex flex-col items-center justify-center overflow-hidden bg-[#581C87] py-10"
     >
-      <div className="flex flex-col justify-center items-center md:items-start md:w-full md:flex-row md:justify-between md:px-40 md:py-20">
-        <div className="flex flex-col items-center justify-center gap-14 md:w-[814px]">
+      <div className="flex flex-col justify-center items-center lg:items-start lg:w-full lg:flex-row lg:justify-between lg:px-40 lg:py-20">
+        <div className="flex flex-col items-center justify-center gap-14 lg:w-[814px]">
           <div className="flex flex-col items-center gap-2 w-full h-[62px]">
-            <h3 className="text-center md:text-left text-[#FCD34D] text-[16px] md:text-[20px] font-medium leading-[18px] w-full">
+            <h3 className="text-center lg:text-left text-[#FCD34D] text-[16px] lg:text-[20px] font-medium leading-[18px] w-full">
               Join other Sun harvesters
             </h3>
-            <h2 className="text-center md:text-left text-white  text-[32px] md:text-[56px] font-bold leading-[35px] w-full">
+            <h2 className="text-center lg:text-left text-white  text-[32px] lg:text-[56px] font-bold leading-[35px] w-full">
               Make something awesome
             </h2>
           </div>
-          <p className="text-center md:text-left text-white  text-[16px] md:text-[20px] leading-[22px] w-full px-8 md:px-0">
+          <p className="text-center lg:text-left text-white  text-[16px] lg:text-[20px] leading-[22px] w-full px-8 lg:px-0">
             Dui euismod iaculis libero, aliquet vitae et elementum porttitor.
             Eleifend mi tristique condimentum congue fusce nunc, donec magnis
             commodo.
@@ -52,7 +52,7 @@ const MakeSomething = () => {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={carouselVariants}
-        className="pl-7 md:pl-60"
+        className="pl-7 lg:pl-60"
       >
         <CarouselMakeSomething />
       </motion.div>

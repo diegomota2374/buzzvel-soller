@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 const NowAvailable = () => {
   const { ref, inView } = useInView({
     triggerOnce: false,
-    threshold: 0.2,
+    threshold: 0.1,
   });
 
   const circleVariants = {
@@ -36,13 +36,16 @@ const NowAvailable = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[#581C87] md:bg-[#7E22CE] py-10">
-      <div className="flex flex-col md:flex-row md:w-full items-center  justify-center md:justify-between md:px-40 gap-5 ">
-        <div className="flex flex-col items-center  gap-2 w-full md:w-[894px] h-[62px]">
-          <h3 className="text-center md:text-left text-[#FCD34D] text-[16px] md:text-[20px] font-medium leading-[18px] w-full">
+    <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[#581C87] lg:bg-[#7E22CE] py-10">
+      <div className="flex flex-col lg:flex-row lg:w-full items-center  justify-center lg:justify-between lg:px-40 gap-5 ">
+        <div className="flex flex-col items-center  gap-2 w-full lg:w-[894px] h-[62px]">
+          <h3 className="text-center lg:text-left text-[#FCD34D] text-[16px] lg:text-[20px] font-medium leading-[18px] w-full">
             Get the Sun to power your home
           </h3>
-          <h2 className="text-center md:text-left text-white  text-[32px] md:text-[56px] font-bold leading-[35px] md:leading-[61.6px] w-full">
+          <h2
+            ref={ref}
+            className="text-center lg:text-left text-white  text-[32px] lg:text-[56px] font-bold leading-[35px] lg:leading-[61.6px] w-full"
+          >
             All the power that you need for your house is now available
           </h2>
         </div>
@@ -51,10 +54,7 @@ const NowAvailable = () => {
             Request a Quote
             <FaArrowRight size={18} />
           </button>
-          <p
-            ref={ref}
-            className="text-center text-white  text-[16px] w-full px-8 pb-5"
-          >
+          <p className="text-center text-white  text-[16px] w-full px-8 pb-5">
             Egestas fringilla aliquam leo
           </p>
         </div>
@@ -70,7 +70,7 @@ const NowAvailable = () => {
       </motion.div>
 
       <motion.div
-        className="absolute bg-[#A855F7] rounded-full w-[356px] h-[355px] md:w-[782px] md:h-[780px] -left-1/2 md:left-[1200px] -bottom-[200px] md:bottom-[420px] transform -translate-y-2/3 z-[1]"
+        className="absolute bg-[#A855F7] rounded-full w-[356px] h-[355px] lg:w-[782px] lg:h-[780px] -left-1/2 lg:left-[1200px] -bottom-[200px] lg:bottom-[420px] transform -translate-y-2/3 z-[1]"
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={circleVariants}

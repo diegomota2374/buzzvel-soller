@@ -15,8 +15,7 @@ const CustomScreenDesktop = ({
 
   useEffect(() => {
     const handleResize = () => {
-      // Verifica se a largura da tela é média (por exemplo, entre 768px e 1024px)
-      setIsMediumScreen(window.innerWidth >= 768);
+      setIsMediumScreen(window.innerWidth >= 1024);
     };
 
     window.addEventListener("resize", handleResize);
