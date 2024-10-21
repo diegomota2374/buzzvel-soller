@@ -15,7 +15,7 @@ const HeaderComponent = () => {
       x: 0,
       transition: {
         type: "spring",
-        stiffness: 60,
+        stiffness: 70,
         damping: 20,
         when: "beforeChildren",
         staggerChildren: 0.1,

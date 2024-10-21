@@ -11,7 +11,7 @@ const PowerfulFeatures = () => {
       x: 0,
       transition: {
         type: "spring",
-        stiffness: 60,
+        stiffness: 80,
         damping: 20,
         when: "beforeChildren",
         staggerChildren: 0.1,
