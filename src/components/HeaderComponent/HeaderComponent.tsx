@@ -5,7 +5,7 @@ const HeaderComponent = () => {
   return (
     <section
       id="powerHome"
-      className="relative flex flex-col-reverse md:flex-row "
+      className="relative flex flex-col-reverse md:flex-row pb-10"
     >
       <div className=" p-4 my-5 md:w-[920px] md:px-20 md:py-0 md:my-0 pt-60 md:pt-0">
         <div className="flex flex-col text-center justify-center items-center md:items-start md:w-[600px] gap-8">
@@ -51,7 +51,7 @@ const HeaderComponent = () => {
         </div>
       </div>
 
-      <div className="absolute -right-4 md:right-0 -top-24 md:-top-40 rounded-full z-10">
+      <div className="absolute right-0 md:right-0 -top-24 md:-top-40 rounded-full z-10">
         <Image
           src="/img/soller.jpg"
           alt="Imagem Circular"

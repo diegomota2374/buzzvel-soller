@@ -1,5 +1,6 @@
 "use client";
 import { FaRegHeart, FaStar } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 interface CustomScreenDesktopProps {
   fromNotebookScreen?: boolean;
@@ -8,22 +9,56 @@ interface CustomScreenDesktopProps {
 const CustomScreenDesktop = ({
   fromNotebookScreen,
 }: CustomScreenDesktopProps) => {
-  const scaleFactor = fromNotebookScreen ? 0.775 : 1; // Ajusta a escala se estiver sendo chamado do NotebookScreen
+  const [isMediumScreen, setIsMediumScreen] = useState(false);
+
+  const scaleFactor = fromNotebookScreen ? 0.775 : 1;
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Verifica se a largura da tela é média (por exemplo, entre 768px e 1024px)
+      setIsMediumScreen(window.innerWidth >= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Chama a função uma vez ao montar o componente
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div
-      className="flex w-full h-full"
+      className={`flex w-full h-full`}
       style={{
-        transform: `scale(${scaleFactor})`, // Aplica a escala proporcional
-        transformOrigin: "top left", // Garante que o ponto de origem da escala seja no canto superior esquerdo
-        width: fromNotebookScreen ? "340px" : "100%", // Definir largura do layout proporcional
-        height: fromNotebookScreen ? "210px" : "100%", // Definir altura do layout proporcional
+        transform: fromNotebookScreen
+          ? isMediumScreen
+            ? `scale(2.32)`
+            : `scale(${scaleFactor})`
+          : isMediumScreen
+          ? `scale(4)`
+          : `scale(${scaleFactor})`, // Para outros casos, mantenha o scaleFactor
+
+        transformOrigin: "top left",
+        width: fromNotebookScreen
+          ? isMediumScreen
+            ? "36%"
+            : "340px"
+          : isMediumScreen
+          ? "25%"
+          : "100%",
+
+        height: fromNotebookScreen
+          ? isMediumScreen
+            ? "43%"
+            : "210px"
+          : isMediumScreen
+          ? "192px"
+          : "100%",
       }}
     >
       {/* Left Column */}
       <div
         className={`flex flex-col items-center justify-start bg-[#BFDBFE] w-16 pt-5 px-1 gap-2 ${
-          fromNotebookScreen ? "" : "rounded-bl-xl"
+          fromNotebookScreen ? "" : "rounded-bl-md"
         } `}
       >
         <div className="bg-[#93C5FD] w-[45.57px] h-[6.56px] rounded-lg"></div>
@@ -47,7 +82,7 @@ const CustomScreenDesktop = ({
       {/* Right Column */}
       <div
         className={`flex w-full h-full bg-sky-100 ${
-          fromNotebookScreen ? "" : "rounded-br-xl"
+          fromNotebookScreen ? "" : "rounded-br-md"
         }   pt-5 px-5`}
       >
         <div className="flex flex-col w-28 gap-2">
