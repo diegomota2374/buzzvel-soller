@@ -52,6 +52,7 @@ const MakeSomething = () => {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={carouselVariants}
+        className="pl-7 md:pl-60"
       >
         <CarouselMakeSomething />
       </motion.div>
