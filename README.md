@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Solar Power Web Application
+This is a Next.js frontend application built with TypeScript, TailwindCSS for styling, and Framer Motion for animations. The project implements SEO optimization with Next-SEO, following a design prototype from Figma.
 
-## Getting Started
+Table of Contents
+Features
+Technologies
+Getting Started
+Scripts
 
-First, run the development server:
+Features
+Built with Next.js: The project is developed using Next.js, providing server-side rendering and static site generation.
+TypeScript: Type-safe codebase for a better developer experience and robust error handling.
+TailwindCSS: Modern and utility-first CSS framework for fast UI development.
+Framer Motion: Elegant animations and transitions to improve the user experience.
+SEO Optimization: Managed using Next-SEO for better search engine visibility and social media sharing.
+Figma Design: The UI follows a professional design prototype created in Figma.
+Technologies
+Next.js - A React framework with server-side rendering and static site generation.
+TypeScript - Type-safe JavaScript to prevent runtime errors and improve code quality.
+TailwindCSS - Utility-first CSS framework for fast styling and responsive design.
+Framer Motion - A motion library for declarative animations.
+Next-SEO - SEO configuration and metadata management for optimized web pages.
+React-Icons - Icons used throughout the project.
+Figma - The UI design is based on a Figma prototype.
+Getting Started
+Follow the steps below to run the project locally.
 
-```bash
+Prerequisites
+Node.js (version 14.x or higher)
+npm or yarn
+Installation
+Clone this repository:
+bash
+Copiar código
+git clone https://github.com/diegomota2374/buzzvel-soller
+Install the dependencies:
+bash
+Copiar código
+npm install
+# or
+yarn install
+Run the development server:
+bash
+Copiar código
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open the browser at http://localhost:3000 to view the app.
+Scripts
+dev: Starts the development server.
+build: Builds the application for production.
+start: Starts the production server after building the app.
+lint: Lints the code using ESLint.
