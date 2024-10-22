@@ -3,11 +3,8 @@ import { FaArrowRight } from "react-icons/fa";
 import CarouselMakeSomething from "../CarouselMakeSomething/CarouselMakeSomething";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-import { NextSeo } from "next-seo";
 
 const MakeSomething = () => {
-  const urlDomain = process.env.NEXT_PUBLIC_DOMAIN_URL;
-
   const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.2,
@@ -26,61 +23,40 @@ const MakeSomething = () => {
     },
   };
   return (
-    <>
-      {/* Configurações de SEO */}
-      <NextSeo
-        title="Make Something Awesome | Join Other Sun Harvesters"
-        description="Join other Sun harvesters and make something awesome. Get inspired by amazing solar energy projects and request a quote today."
-        canonical={urlDomain}
-        openGraph={{
-          url: urlDomain,
-          title: "Make Something Awesome | Join Other Sun Harvesters",
-          description:
-            "Join other Sun harvesters and make something awesome. Get inspired by amazing solar energy projects and request a quote today.",
-
-          site_name: "soller",
-        }}
-        twitter={{
-          handle: "@twitterhandle",
-          site: "@twitterhandle",
-          cardType: "summary_large_image",
-        }}
-      />
-      <section
-        ref={ref}
-        className="flex flex-col items-center justify-center overflow-hidden bg-[#581C87] py-10"
-      >
-        <div className="flex flex-col justify-center items-center lg:items-start lg:w-full lg:flex-row lg:justify-between lg:px-40 lg:py-20">
-          <div className="flex flex-col items-center justify-center gap-14 lg:w-[814px]">
-            <div className="flex flex-col items-center gap-2 w-full h-[62px]">
-              <h3 className="text-center lg:text-left text-[#FCD34D] text-[16px] lg:text-[20px] font-medium leading-[18px] w-full">
-                Join other Sun harvesters
-              </h3>
-              <h2 className="text-center lg:text-left text-white  text-[32px] lg:text-[56px] font-bold leading-[35px] w-full">
-                Make something awesome
-              </h2>
-            </div>
-            <p className="text-center lg:text-left text-white  text-[16px] lg:text-[20px] leading-[22px] w-full px-8 lg:px-0">
-              Dui euismod iaculis libero, aliquet vitae et elementum porttitor.
-              Eleifend mi tristique condimentum congue fusce nunc, donec magnis
-              commodo.
-            </p>
+    <section
+      ref={ref}
+      className="flex flex-col items-center justify-center overflow-hidden bg-[#581C87] py-10"
+    >
+      <div className="flex flex-col justify-center items-center lg:items-start lg:w-full lg:flex-row lg:justify-between lg:px-40 lg:py-20">
+        <div className="flex flex-col items-center justify-center gap-14 lg:w-[814px]">
+          <div className="flex flex-col items-center gap-2 w-full h-[62px]">
+            <h3 className="text-center lg:text-left text-[#FCD34D] text-[16px] lg:text-[20px] font-medium leading-[18px] w-full">
+              Join other Sun harvesters
+            </h3>
+            <h2 className="text-center lg:text-left text-white  text-[32px] lg:text-[56px] font-bold leading-[35px] w-full">
+              Make something awesome
+            </h2>
           </div>
-          <button className="w-[306px] h-[64px] py-2 px-3 border-2 border-[#FCD34D] rounded-full text-2xl text-[#FCD34D] font-bold flex items-center justify-center gap-8 hover:bg-[#FCD34D] hover:text-[#78350F] my-5">
-            Request a Quote
-            <FaArrowRight size={18} />
-          </button>
+          <p className="text-center lg:text-left text-white  text-[16px] lg:text-[20px] leading-[22px] w-full px-8 lg:px-0">
+            Dui euismod iaculis libero, aliquet vitae et elementum porttitor.
+            Eleifend mi tristique condimentum congue fusce nunc, donec magnis
+            commodo.
+          </p>
         </div>
-        <motion.div
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={carouselVariants}
-          className="pl-7 lg:pl-60"
-        >
-          <CarouselMakeSomething />
-        </motion.div>
-      </section>
-    </>
+        <button className="w-[306px] h-[64px] py-2 px-3 border-2 border-[#FCD34D] rounded-full text-2xl text-[#FCD34D] font-bold flex items-center justify-center gap-8 hover:bg-[#FCD34D] hover:text-[#78350F] my-5">
+          Request a Quote
+          <FaArrowRight size={18} />
+        </button>
+      </div>
+      <motion.div
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={carouselVariants}
+        className="pl-7 lg:pl-60"
+      >
+        <CarouselMakeSomething />
+      </motion.div>
+    </section>
   );
 };
 export default MakeSomething;

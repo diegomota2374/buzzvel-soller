@@ -10,11 +10,6 @@ const defaultSEO = {
     url: urlDomain,
     siteName: "soller",
   },
-  twitter: {
-    handle: "@handle",
-    site: "@site",
-    cardType: "summary_large_image",
-  },
 };
 
 export default defaultSEO;

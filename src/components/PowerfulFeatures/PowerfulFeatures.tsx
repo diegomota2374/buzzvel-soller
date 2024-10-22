@@ -2,11 +2,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import PhonePowerfulFeatures from "../PhonePowerfulFeatures/PhonePowerfulFeatures";
-import { NextSeo } from "next-seo";
 
 const PowerfulFeatures = () => {
-  const urlDomain = process.env.NEXT_PUBLIC_DOMAIN_URL;
-
   const containerVariants = {
     hidden: { opacity: 0, x: -100 },
     visible: {
@@ -32,97 +29,76 @@ const PowerfulFeatures = () => {
     threshold: 0.2,
   });
   return (
-    <>
-      {/* Configurações de SEO */}
-      <NextSeo
-        title="Powerful Solar System Features | Advanced Technology"
-        description="Explore the powerful features of our solar system technology, designed to provide efficient and reliable energy solutions."
-        canonical={urlDomain}
-        openGraph={{
-          url: urlDomain,
-          title: "Powerful Solar System Features | Advanced Technology",
-          description:
-            "Explore the powerful features of our solar system technology, designed to provide efficient and reliable energy solutions.",
-
-          site_name: "soller",
-        }}
-        twitter={{
-          handle: "@twitterhandle",
-          site: "@twitterhandle",
-          cardType: "summary_large_image",
-        }}
-      />
-      <section
-        ref={ref}
-        className="flex flex-col lg:flex-row lg:gap-60 lg:p-16 overflow-hidden"
+    <section
+      ref={ref}
+      className="flex flex-col lg:flex-row lg:gap-60 lg:p-16 overflow-hidden"
+    >
+      <motion.div
+        className="lg:w-[60%] lg:py-36 "
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={containerVariants}
       >
+        <div className="flex flex-col items-center justify-center gap-6 pb-20">
+          <div className="flex flex-col items-center gap-2 w-full h-[62px]">
+            <h3 className="text-center lg:text-left text-[#D97706] text-[16px] lg:text-[20px] font-medium leading-[18px] w-full">
+              System features
+            </h3>
+            <h2 className="text-center lg:text-left text-[#0F172A] text-[32px] lg:text-[56px] font-bold leading-[35px] lg:leading-[61.6px] w-full">
+              Powerful features
+            </h2>
+          </div>
+          <p className="text-center lg:text-left text-[16px] lg:text-[20px] leading-[22px] lg:leading-[36px] w-full px-8 lg:px-0">
+            Pretium lectus ultrices sit tempor, sit ullamcorper volutpat et et.
+            Auctor turpis semper id sit ornare maecenas lectus sed.
+          </p>
+        </div>
         <motion.div
-          className="lg:w-[60%] lg:py-36 "
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
+          className="grid grid-cols-2 gap-4 justify-items-center items-center"
+          variants={itemVariants}
         >
-          <div className="flex flex-col items-center justify-center gap-6 pb-20">
-            <div className="flex flex-col items-center gap-2 w-full h-[62px]">
-              <h3 className="text-center lg:text-left text-[#D97706] text-[16px] lg:text-[20px] font-medium leading-[18px] w-full">
-                System features
-              </h3>
-              <h2 className="text-center lg:text-left text-[#0F172A] text-[32px] lg:text-[56px] font-bold leading-[35px] lg:leading-[61.6px] w-full">
-                Powerful features
-              </h2>
-            </div>
-            <p className="text-center lg:text-left text-[16px] lg:text-[20px] leading-[22px] lg:leading-[36px] w-full px-8 lg:px-0">
-              Pretium lectus ultrices sit tempor, sit ullamcorper volutpat et
-              et. Auctor turpis semper id sit ornare maecenas lectus sed.
+          {/* Elementos com largura e altura ajustados para telas md */}
+          <div className="w-[147.5px] h-[253px] lg:w-[95%] lg:h-[181px]">
+            <h3 className="text-[20px] lg:text-[24px] font-[500] leading-[22px] text-center lg:text-left pt-10 pb-4">
+              Erat sit
+            </h3>
+            <p className="text-[16px] lg:text-[18px] font-[400] leading-[22px] text-center lg:text-left">
+              Id quis lectus pharetra, ultricies integer montes, amet, gravida
+              consectetur. Nunc convallis fringilla nisl magna sagittis.
             </p>
           </div>
-          <motion.div
-            className="grid grid-cols-2 gap-4 justify-items-center items-center"
-            variants={itemVariants}
-          >
-            {/* Elementos com largura e altura ajustados para telas md */}
-            <div className="w-[147.5px] h-[253px] lg:w-[95%] lg:h-[181px]">
-              <h3 className="text-[20px] lg:text-[24px] font-[500] leading-[22px] text-center lg:text-left pt-10 pb-4">
-                Erat sit
-              </h3>
-              <p className="text-[16px] lg:text-[18px] font-[400] leading-[22px] text-center lg:text-left">
-                Id quis lectus pharetra, ultricies integer montes, amet, gravida
-                consectetur. Nunc convallis fringilla nisl magna sagittis.
-              </p>
-            </div>
-            <div className="w-[147.5px] h-[253px] lg:w-[95%] lg:h-[181px]">
-              <h3 className="text-[20px] lg:text-[24px] font-[500] leading-[22px] text-center lg:text-left pt-10 pb-4">
-                Ullamcorper arcu
-              </h3>
-              <p className="text-[16px] lg:text-[18px] font-[400] leading-[22px] text-center lg:text-left">
-                Ipsum at id hendrerit amet faucibus commodo quam nullam. Lectus
-                auctor habitant duis dictum.
-              </p>
-            </div>
-            <div className="w-[147.5px] h-[253px] lg:w-[95%] lg:h-[181px]">
-              <h3 className="text-[20px] lg:text-[24px] font-[500] leading-[22px] text-center lg:text-left pt-10 pb-4">
-                Et pellentesque
-              </h3>
-              <p className="text-[16px] lg:text-[18px] font-[400] leading-[22px] text-center lg:text-left">
-                Mi vitae, massa eu molestie massa euismod volutpat condimentum.
-                Blandit molestie ullamcorper hendrerit purus lorem vulputate.
-              </p>
-            </div>
-            <div className="w-[147.5px] h-[253px] lg:w-[95%] lg:h-[181px]">
-              <h3 className="text-[20px] lg:text-[24px] font-[500] leading-[22px] text-center lg:text-left pt-10 pb-4">
-                Amet egestas
-              </h3>
-              <p className="text-[16px] lg:text-[18px] font-[400] leading-[22px] text-center lg:text-left">
-                Elementum, libero, lacus, vel ullamcorper at velit id. Malesuada
-                velit et, ullamcorper malesuada amet, felis.
-              </p>
-            </div>
-          </motion.div>
+          <div className="w-[147.5px] h-[253px] lg:w-[95%] lg:h-[181px]">
+            <h3 className="text-[20px] lg:text-[24px] font-[500] leading-[22px] text-center lg:text-left pt-10 pb-4">
+              Ullamcorper arcu
+            </h3>
+            <p className="text-[16px] lg:text-[18px] font-[400] leading-[22px] text-center lg:text-left">
+              Ipsum at id hendrerit amet faucibus commodo quam nullam. Lectus
+              auctor habitant duis dictum.
+            </p>
+          </div>
+          <div className="w-[147.5px] h-[253px] lg:w-[95%] lg:h-[181px]">
+            <h3 className="text-[20px] lg:text-[24px] font-[500] leading-[22px] text-center lg:text-left pt-10 pb-4">
+              Et pellentesque
+            </h3>
+            <p className="text-[16px] lg:text-[18px] font-[400] leading-[22px] text-center lg:text-left">
+              Mi vitae, massa eu molestie massa euismod volutpat condimentum.
+              Blandit molestie ullamcorper hendrerit purus lorem vulputate.
+            </p>
+          </div>
+          <div className="w-[147.5px] h-[253px] lg:w-[95%] lg:h-[181px]">
+            <h3 className="text-[20px] lg:text-[24px] font-[500] leading-[22px] text-center lg:text-left pt-10 pb-4">
+              Amet egestas
+            </h3>
+            <p className="text-[16px] lg:text-[18px] font-[400] leading-[22px] text-center lg:text-left">
+              Elementum, libero, lacus, vel ullamcorper at velit id. Malesuada
+              velit et, ullamcorper malesuada amet, felis.
+            </p>
+          </div>
         </motion.div>
+      </motion.div>
 
-        <PhonePowerfulFeatures />
-      </section>
-    </>
+      <PhonePowerfulFeatures />
+    </section>
   );
 };
 
